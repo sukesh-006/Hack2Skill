@@ -192,7 +192,8 @@ ARTIFACT_ERROR = None
 try:
     ARTIFACT = load_artifact_once()
 except Exception as exc:
-    ARTIFACT_ERROR = str(exc)
+    print(f"Artifact load error: {exc}")
+    ARTIFACT_ERROR = "Pretrained model artifact is unavailable. Run train_offline.py and redeploy."
 
 state = {"tmp_dir": TMP_DIR}
 
@@ -232,8 +233,8 @@ def load_demo():
                 },
             }
         )
-    except Exception as e:
-        return jsonify({"success": False, "error": str(e)})
+    except Exception:
+        return jsonify({"success": False, "error": "Failed to load demo dataset."})
 
 
 @app.route("/api/upload", methods=["POST"])
@@ -270,8 +271,8 @@ def upload_file():
                 "tmp_dir": TMP_DIR,
             }
         )
-    except Exception as e:
-        return jsonify({"success": False, "error": str(e)})
+    except Exception:
+        return jsonify({"success": False, "error": "Failed to process uploaded CSV."})
 
 
 @app.route("/api/analyze", methods=["POST"])
@@ -321,10 +322,15 @@ def analyze():
         state["label_col"] = ARTIFACT.get("label_col", "income")
 
         return jsonify(model_results[sensitive_col])
-    except TimeoutError as e:
-        return jsonify({"success": False, "error": str(e)})
-    except Exception as e:
-        return jsonify({"success": False, "error": str(e)})
+    except TimeoutError:
+        return jsonify(
+            {
+                "success": False,
+                "error": f"Upload analysis timed out. Reduce rows and retry (max {MAX_UPLOAD_ROWS}).",
+            }
+        )
+    except Exception:
+        return jsonify({"success": False, "error": "Failed to run analysis."})
 
 
 @app.route("/api/predict", methods=["POST"])
@@ -375,5 +381,5 @@ def predict_single():
                 "probability": round(float(prob), 4),
             }
         )
-    except Exception as e:
-        return jsonify({"success": False, "error": str(e)})
+    except Exception:
+        return jsonify({"success": False, "error": "Failed to run prediction."})
