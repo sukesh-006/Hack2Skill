@@ -116,7 +116,7 @@ def check_timeout(start_time, phase):
 def encode_dataframe(df):
     df_enc = df.copy()
     encoders = {}
-    for col in df_enc.select_dtypes(include="object").columns:
+    for col in df_enc.select_dtypes(include=["object", "string"]).columns:
         le = LabelEncoder()
         df_enc[col] = le.fit_transform(df_enc[col].astype(str))
         encoders[col] = le

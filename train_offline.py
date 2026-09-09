@@ -1,11 +1,13 @@
 import json
 from pathlib import Path
+import warnings
 
 import joblib
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.exceptions import ConvergenceWarning
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -16,6 +18,8 @@ MODEL_DIR = ROOT_DIR / "model"
 MODEL_PATH = MODEL_DIR / "trained_model.pkl"
 METRICS_JSON_PATH = MODEL_DIR / "precomputed_metrics.json"
 METRICS_PKL_PATH = MODEL_DIR / "precomputed_metrics.pkl"
+
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 
 def compute_fairness_metrics(df, predictions, sensitive_col, label_col="income"):
@@ -95,7 +99,7 @@ def load_dataset():
 def encode_dataset(df):
     df_enc = df.copy()
     encoders = {}
-    for col in df_enc.select_dtypes(include="object").columns:
+    for col in df_enc.select_dtypes(include=["object", "string"]).columns:
         le = LabelEncoder()
         df_enc[col] = le.fit_transform(df_enc[col].astype(str))
         encoders[col] = le
