@@ -1,0 +1,364 @@
+{
+  "random_forest": {
+    "gender": {
+      "success": true,
+      "accuracy": 0.5656,
+      "mitigated_accuracy": 0.5433,
+      "original": {
+        "group_metrics": {
+          "Male": {
+            "count": 590,
+            "positive_rate": 0.5576,
+            "true_positive_rate": 0.5897,
+            "false_positive_rate": 0.5172,
+            "accuracy": 0.5424,
+            "disparate_impact": 1.2641
+          },
+          "Female": {
+            "count": 310,
+            "positive_rate": 0.2194,
+            "true_positive_rate": 0.2735,
+            "false_positive_rate": 0.1865,
+            "accuracy": 0.6097,
+            "disparate_impact": 0.4973
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.3382,
+          "equal_opportunity_diff": 0.3162,
+          "disparate_impact_ratio": 0.4973,
+          "is_biased": true
+        }
+      },
+      "mitigated": {
+        "group_metrics": {
+          "Male": {
+            "count": 590,
+            "positive_rate": 0.5034,
+            "true_positive_rate": 0.5289,
+            "false_positive_rate": 0.4713,
+            "accuracy": 0.5288,
+            "disparate_impact": 1.009
+          },
+          "Female": {
+            "count": 310,
+            "positive_rate": 0.4903,
+            "true_positive_rate": 0.5812,
+            "false_positive_rate": 0.4352,
+            "accuracy": 0.571,
+            "disparate_impact": 0.9828
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.0131,
+          "equal_opportunity_diff": 0.0523,
+          "disparate_impact_ratio": 0.9828,
+          "is_biased": false
+        }
+      },
+      "feature_importance": {
+        "fnlwgt": 0.15,
+        "hours_per_week": 0.1411,
+        "age": 0.1367,
+        "education_num": 0.1081,
+        "education": 0.1005,
+        "occupation": 0.0954,
+        "relationship": 0.0664,
+        "marital_status": 0.0533,
+        "workclass": 0.0371,
+        "gender": 0.0295
+      },
+      "sensitive_col": "gender",
+      "model_type": "random_forest"
+    },
+    "race": {
+      "success": true,
+      "accuracy": 0.5656,
+      "mitigated_accuracy": 0.5544,
+      "original": {
+        "group_metrics": {
+          "White": {
+            "count": 773,
+            "positive_rate": 0.4476,
+            "true_positive_rate": 0.5052,
+            "false_positive_rate": 0.3902,
+            "accuracy": 0.5576,
+            "disparate_impact": 1.0147
+          },
+          "Black": {
+            "count": 73,
+            "positive_rate": 0.3699,
+            "true_positive_rate": 0.5143,
+            "false_positive_rate": 0.2368,
+            "accuracy": 0.6438,
+            "disparate_impact": 0.8385
+          },
+          "Asian-Pac-Islander": {
+            "count": 32,
+            "positive_rate": 0.375,
+            "true_positive_rate": 0.5385,
+            "false_positive_rate": 0.2632,
+            "accuracy": 0.6562,
+            "disparate_impact": 0.8501
+          },
+          "Amer-Indian-Eskimo": {
+            "count": 11,
+            "positive_rate": 0.5455,
+            "true_positive_rate": 0.5714,
+            "false_positive_rate": 0.5,
+            "accuracy": 0.5455,
+            "disparate_impact": 1.2365
+          },
+          "Other": {
+            "count": 11,
+            "positive_rate": 0.5455,
+            "true_positive_rate": 0.4,
+            "false_positive_rate": 0.6667,
+            "accuracy": 0.3636,
+            "disparate_impact": 1.2365
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.1756,
+          "equal_opportunity_diff": 0.1714,
+          "disparate_impact_ratio": 0.8385,
+          "is_biased": true
+        }
+      },
+      "mitigated": {
+        "group_metrics": {
+          "White": {
+            "count": 773,
+            "positive_rate": 0.511,
+            "true_positive_rate": 0.5648,
+            "false_positive_rate": 0.4574,
+            "accuracy": 0.5537,
+            "disparate_impact": 1.002
+          },
+          "Black": {
+            "count": 73,
+            "positive_rate": 0.4932,
+            "true_positive_rate": 0.6,
+            "false_positive_rate": 0.3947,
+            "accuracy": 0.6027,
+            "disparate_impact": 0.967
+          },
+          "Asian-Pac-Islander": {
+            "count": 32,
+            "positive_rate": 0.5,
+            "true_positive_rate": 0.5385,
+            "false_positive_rate": 0.4737,
+            "accuracy": 0.5312,
+            "disparate_impact": 0.9804
+          },
+          "Amer-Indian-Eskimo": {
+            "count": 11,
+            "positive_rate": 0.5455,
+            "true_positive_rate": 0.5714,
+            "false_positive_rate": 0.5,
+            "accuracy": 0.5455,
+            "disparate_impact": 1.0695
+          },
+          "Other": {
+            "count": 11,
+            "positive_rate": 0.5455,
+            "true_positive_rate": 0.4,
+            "false_positive_rate": 0.6667,
+            "accuracy": 0.3636,
+            "disparate_impact": 1.0695
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.0523,
+          "equal_opportunity_diff": 0.2,
+          "disparate_impact_ratio": 0.967,
+          "is_biased": false
+        }
+      },
+      "feature_importance": {
+        "fnlwgt": 0.15,
+        "hours_per_week": 0.1411,
+        "age": 0.1367,
+        "education_num": 0.1081,
+        "education": 0.1005,
+        "occupation": 0.0954,
+        "relationship": 0.0664,
+        "marital_status": 0.0533,
+        "workclass": 0.0371,
+        "gender": 0.0295
+      },
+      "sensitive_col": "race",
+      "model_type": "random_forest"
+    }
+  },
+  "logistic": {
+    "gender": {
+      "success": true,
+      "accuracy": 0.5689,
+      "mitigated_accuracy": 0.5667,
+      "original": {
+        "group_metrics": {
+          "Male": {
+            "count": 590,
+            "positive_rate": 0.4915,
+            "true_positive_rate": 0.5684,
+            "false_positive_rate": 0.3946,
+            "accuracy": 0.5847,
+            "disparate_impact": 1.0384
+          },
+          "Female": {
+            "count": 310,
+            "positive_rate": 0.4387,
+            "true_positive_rate": 0.4701,
+            "false_positive_rate": 0.4197,
+            "accuracy": 0.5387,
+            "disparate_impact": 0.9269
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.0528,
+          "equal_opportunity_diff": 0.0983,
+          "disparate_impact_ratio": 0.9269,
+          "is_biased": false
+        }
+      },
+      "mitigated": {
+        "group_metrics": {
+          "Male": {
+            "count": 590,
+            "positive_rate": 0.4949,
+            "true_positive_rate": 0.5714,
+            "false_positive_rate": 0.3985,
+            "accuracy": 0.5847,
+            "disparate_impact": 0.9987
+          },
+          "Female": {
+            "count": 310,
+            "positive_rate": 0.4968,
+            "true_positive_rate": 0.5385,
+            "false_positive_rate": 0.4715,
+            "accuracy": 0.5323,
+            "disparate_impact": 1.0025
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.0019,
+          "equal_opportunity_diff": 0.0329,
+          "disparate_impact_ratio": 0.9987,
+          "is_biased": false
+        }
+      },
+      "feature_importance": {},
+      "sensitive_col": "gender",
+      "model_type": "logistic"
+    },
+    "race": {
+      "success": true,
+      "accuracy": 0.5689,
+      "mitigated_accuracy": 0.5644,
+      "original": {
+        "group_metrics": {
+          "White": {
+            "count": 773,
+            "positive_rate": 0.4567,
+            "true_positive_rate": 0.5259,
+            "false_positive_rate": 0.3876,
+            "accuracy": 0.5692,
+            "disparate_impact": 0.9648
+          },
+          "Black": {
+            "count": 73,
+            "positive_rate": 0.5205,
+            "true_positive_rate": 0.6286,
+            "false_positive_rate": 0.4211,
+            "accuracy": 0.6027,
+            "disparate_impact": 1.0997
+          },
+          "Asian-Pac-Islander": {
+            "count": 32,
+            "positive_rate": 0.7188,
+            "true_positive_rate": 0.7692,
+            "false_positive_rate": 0.6842,
+            "accuracy": 0.5,
+            "disparate_impact": 1.5185
+          },
+          "Amer-Indian-Eskimo": {
+            "count": 11,
+            "positive_rate": 0.7273,
+            "true_positive_rate": 0.8571,
+            "false_positive_rate": 0.5,
+            "accuracy": 0.7273,
+            "disparate_impact": 1.5365
+          },
+          "Other": {
+            "count": 11,
+            "positive_rate": 0.3636,
+            "true_positive_rate": 0.2,
+            "false_positive_rate": 0.5,
+            "accuracy": 0.3636,
+            "disparate_impact": 0.7682
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.3637,
+          "equal_opportunity_diff": 0.6571,
+          "disparate_impact_ratio": 0.7682,
+          "is_biased": true
+        }
+      },
+      "mitigated": {
+        "group_metrics": {
+          "White": {
+            "count": 773,
+            "positive_rate": 0.4955,
+            "true_positive_rate": 0.557,
+            "false_positive_rate": 0.4341,
+            "accuracy": 0.5614,
+            "disparate_impact": 0.9954
+          },
+          "Black": {
+            "count": 73,
+            "positive_rate": 0.5068,
+            "true_positive_rate": 0.6,
+            "false_positive_rate": 0.4211,
+            "accuracy": 0.589,
+            "disparate_impact": 1.0182
+          },
+          "Asian-Pac-Islander": {
+            "count": 32,
+            "positive_rate": 0.5,
+            "true_positive_rate": 0.6154,
+            "false_positive_rate": 0.4211,
+            "accuracy": 0.5938,
+            "disparate_impact": 1.0045
+          },
+          "Amer-Indian-Eskimo": {
+            "count": 11,
+            "positive_rate": 0.5455,
+            "true_positive_rate": 0.7143,
+            "false_positive_rate": 0.25,
+            "accuracy": 0.7273,
+            "disparate_impact": 1.0958
+          },
+          "Other": {
+            "count": 11,
+            "positive_rate": 0.5455,
+            "true_positive_rate": 0.4,
+            "false_positive_rate": 0.6667,
+            "accuracy": 0.3636,
+            "disparate_impact": 1.0958
+          }
+        },
+        "bias_summary": {
+          "statistical_parity_diff": 0.05,
+          "equal_opportunity_diff": 0.3143,
+          "disparate_impact_ratio": 0.9954,
+          "is_biased": false
+        }
+      },
+      "feature_importance": {},
+      "sensitive_col": "race",
+      "model_type": "logistic"
+    }
+  }
+}
